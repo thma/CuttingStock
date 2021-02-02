@@ -1,0 +1,62 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 1c4e78f92f9fd9f4283e6d15d0cce45137d62216537a536f62488ed898d68137
+
+name:           CuttingStock
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/CuttingStock#readme>
+homepage:       https://github.com/githubuser/CuttingStock#readme
+bug-reports:    https://github.com/githubuser/CuttingStock/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/CuttingStock
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_CuttingStock
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable CuttingStock-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_CuttingStock
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      CuttingStock
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite CuttingStock-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_CuttingStock
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      CuttingStock
+    , base >=4.7 && <5
+  default-language: Haskell2010
