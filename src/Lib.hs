@@ -2,6 +2,7 @@ module Lib where
 
 import Data.Ord
 import Data.List (sortOn)  
+import System.Random
  
 -- https://en.wikipedia.org/wiki/Cutting_stock_problem
 
@@ -69,9 +70,17 @@ arrangeWithAll allFuns maxWidth rects =
         sortedTrials   = sortOn snd weightedTrials
      in fst $ head sortedTrials
      
+randomList :: Int -> [Double]
+randomList seed = randoms (mkStdGen seed) :: [Double]     
+
+rndDouble :: IO Double
+rndDouble = randomIO
+     
 test :: IO ()
 test = do
+  seed <- randomIO :: IO Int
   let maxWidth       = 100
+      
       allTrials      = map (arrangeWith maxWidth rects) weightFunctions
       weightedTrials = map (\l -> (l, sum (map maxLength l))) allTrials
       sortedTrials   = sortOn snd weightedTrials
